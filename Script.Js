@@ -28,6 +28,10 @@ function populateDisplay(displayedString) {
     document.querySelector(".calculator-screen-text").textContent = displayedString;
 }
 
+function clearDisplay() {
+    document.querySelector(".calculator-screen-text").textContent = "";
+}
+
 let powerButton = document.querySelector(".on-button");
 
 powerButton.addEventListener("click", () => {
@@ -35,6 +39,7 @@ powerButton.addEventListener("click", () => {
 
     if (isTurnedOn == true) {
         isTurnedOn = false;
+        clearDisplay();
     }
     else if (isTurnedOn == false) {
         isTurnedOn = true;
@@ -45,7 +50,7 @@ powerButton.addEventListener("click", () => {
 const buttonWrapper = document.querySelector(".calculator-buttons-wrapper");
 buttonWrapper.addEventListener("click", (e) => {
     const isButton = e.target.nodeName === "BUTTON";
-    if (!isButton) {
+    if (!isButton || !isTurnedOn) {
         return;
     }
     let selectedNumber = e.target.innerHTML;
