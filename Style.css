@@ -8,6 +8,10 @@ button:hover {
     background-color: gainsboro;
 }
 
+.calculator-on {
+    background-color: green !important;
+}
+
 .main-contents {
     padding: var(--padding-m);
     display: flex;
@@ -53,9 +57,9 @@ button:hover {
     border: 2px solid black;
     width: 50%;
     height: 50%;
+    background-color: red;
     border-radius: 100px;
     margin-top: 15px;
-    background-color: red;
     padding: 20px;
     margin-right: var(--margin-m);
 }
