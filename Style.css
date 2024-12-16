@@ -39,16 +39,30 @@ button:hover {
     width: 90%;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.calculator-clear-button {
+    margin-top: var(--margin-m);
+    border-radius: var(--btn-border-radius);
+    width: 200px;
+    height: 90px;
 }
 
 .calculator-indicator-light {
     border: 2px solid black;
+    width: 50%;
+    height: 50%;
     border-radius: 100px;
     margin-top: 15px;
     background-color: red;
     padding: 20px;
     margin-right: var(--margin-m);
+}
+
+.indicator-light-wrapper {
+    display: flex;
+    align-items: center;
 }
 
 .calculator-screen {
