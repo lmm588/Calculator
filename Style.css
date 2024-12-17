@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/sheko-personal-use-only');
+@import url('https://fonts.cdnfonts.com/css/stuntman');
 
 :root {
     --margin-m: 20px;
@@ -38,7 +38,7 @@ button:hover {
     flex: auto;
     flex-direction: column;
     align-items: center;
-    box-shadow: 10px 10px 5px black;
+    box-shadow: 2px 5px 50px 10px black;
 }
 
 .calculator-on-off {
@@ -47,6 +47,10 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.calculator-on-off button{
+    background-color: orange;
 }
 
 .calculator-clear-button {
@@ -73,7 +77,7 @@ button:hover {
 }
 
 .calculator-screen {
-    background-color: rgb(236, 233, 233);
+    background-color: rgb(122, 122, 122);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -86,8 +90,10 @@ button:hover {
 
 .calculator-screen-text {
     font-size: xx-large;
+    color: white;
     padding-left: 30px;
-    font-family:'Sheko Personal Use Only', sans-serif;
+    font-family: 'Stuntman Condensed', sans-serif;
+
 }
 
 .button-text {
@@ -101,14 +107,14 @@ button:hover {
     justify-content: center;
 }
 
-.calculator-top-row button{
-    background-color: yellowgreen;
+.calculator-top-row button {
+    background-color: rgb(29, 113, 223);
 }
 
 .calculator-row button {
     background: rgb(46, 46, 197);
-    }
-    
+}
+
 
 .on-button {
     margin-top: var(--margin-m);
@@ -149,4 +155,3 @@ button:hover {
 .equals-button {
     background-color: rgb(29, 113, 223) !important;
 }
-

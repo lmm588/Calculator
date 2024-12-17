@@ -41,11 +41,11 @@ function performOperatation(operation) {
             break;
 
         case operation = "÷":
-            if(firstNumber === "0" || secondNumber === "0") {
+            if (firstNumber === "0" || secondNumber === "0") {
                 populateDisplay("ERROR");
                 return
             } else
-            result = divide(firstNumber, secondNumber);
+                result = divide(firstNumber, secondNumber);
     }
 
     firstNumber = result;
@@ -99,7 +99,7 @@ numberButtonsWrapper.addEventListener("click", (e) => {
         selectedNumber = e.target.innerHTML;
     }
     else {
-        if (selectedNumber.length >= 45) {
+        if (selectedNumber.length >= 23) {
             return;
         }
         selectedNumber = selectedNumber + e.target.innerHTML;
@@ -130,7 +130,7 @@ operationsWrapper.addEventListener("click", (e) => {
         selectedOperation = e.target.innerHTML;
         populateDisplay(firstNumber + " " + selectedOperation)
         selectedNumber = undefined;
-        
+
     }
 
 });
