@@ -92,7 +92,9 @@ numberButtonsWrapper.addEventListener("click", (e) => {
     if (!isButton || !isTurnedOn) {
         return;
     }
-
+    if (e.target.classList.contains("equals-button")) {
+        return
+    }
     if (selectedNumber === undefined) {
         selectedNumber = e.target.innerHTML;
     }
@@ -115,7 +117,6 @@ operationsWrapper.addEventListener("click", (e) => {
     if (!isButton || !isTurnedOn) {
         return
     }
-
     if (selectedNumber === undefined) {
         return;
     }
@@ -140,7 +141,7 @@ clearButton.addEventListener("click", () => {
     clearCalculator();
 });
 
-const operateButton = document.querySelector(".calculator-equals-button");
+const operateButton = document.querySelector(".equals-button");
 operateButton.addEventListener("click", (e) => {
 
     if (secondNumber === undefined) {
