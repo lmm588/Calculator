@@ -24,12 +24,13 @@ function operate(num1, num2, operation) {
     return operation(num1, num2);
 }
 
-function populateDisplay(displayedString) {
-    document.querySelector(".calculator-screen-text").textContent = displayedString;
+function populateDisplay() {
+    document.querySelector(".calculator-screen-text").textContent = selectedNumber;
 }
 
-function clearDisplay() {
+function clearCalculator() {
     document.querySelector(".calculator-screen-text").textContent = "";
+    selectedNumber = "";
 }
 
 let powerButton = document.querySelector(".on-button");
@@ -39,7 +40,7 @@ powerButton.addEventListener("click", () => {
 
     if (isTurnedOn == true) {
         isTurnedOn = false;
-        clearDisplay();
+        clearCalculator();
     }
     else if (isTurnedOn == false) {
         isTurnedOn = true;
@@ -53,6 +54,10 @@ buttonWrapper.addEventListener("click", (e) => {
     if (!isButton || !isTurnedOn) {
         return;
     }
-    let selectedNumber = e.target.innerHTML;
-    populateDisplay(selectedNumber);
+    if (selectedNumber === undefined) {
+    selectedNumber = e.target.innerHTML;
+    } else {
+    selectedNumber = selectedNumber + e.target.innerHTML;
+    }
+    populateDisplay();
 });
