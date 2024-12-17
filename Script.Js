@@ -3,13 +3,16 @@ let secondNumber
 let isTurnedOn = false;
 let selectedNumber;
 let selectedOperation;
+let hasEnteredFirstNumber = false;
 
 function add(num1, num2) {
-    return parseFloat(num1) + parseFloat(num2);
+    let result = parseFloat(num1) + parseFloat(num2);
+    return result.toFixed(2);
 }
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    let result = num1 - num2;
+    return result.toFixed(2);
 }
 
 function multiply(num1, num2) {
@@ -45,9 +48,8 @@ function performOperatation(operation) {
             result = divide(firstNumber, secondNumber);
     }
 
-    clearCalculator();
-    selectedNumber = result;
     firstNumber = result;
+    secondNumber = undefined;
     populateDisplay(result);
     return result;
 }
@@ -66,6 +68,7 @@ function clearCalculator() {
     firstNumber = undefined;
     secondNumber = undefined;
     selectedOperation = undefined;
+    hasEnteredFirstNumber = false;
 }
 
 let powerButton = document.querySelector(".on-button");
@@ -99,6 +102,9 @@ numberButtonsWrapper.addEventListener("click", (e) => {
         }
         selectedNumber = selectedNumber + e.target.innerHTML;
     }
+    if (!hasEnteredFirstNumber) {
+        firstNumber = selectedNumber;
+    } else secondNumber = selectedNumber;
     populateDisplay(selectedNumber);
 });
 
@@ -109,19 +115,23 @@ operationsWrapper.addEventListener("click", (e) => {
     if (!isButton || !isTurnedOn) {
         return
     }
+
     if (selectedNumber === undefined) {
-        populateDisplay("ERROR");
-        return
+        return;
     }
-    if (selectedOperation === undefined) {
+    if (secondNumber === undefined) {
+        hasEnteredFirstNumber = true;
+        selectedNumber = undefined;
         selectedOperation = e.target.innerHTML;
-        firstNumber = selectedNumber;
         populateDisplay(firstNumber + " " + selectedOperation);
     } else {
-        operateButton.click();
-        firstNumber = document.querySelector(".calculator-screen-text").innerHTML;
+        performOperatation(selectedOperation);
+        selectedOperation = e.target.innerHTML;
+        populateDisplay(firstNumber + " " + selectedOperation)
+        selectedNumber = undefined;
+        
     }
-    selectedNumber = undefined;
+
 });
 
 
@@ -132,9 +142,10 @@ clearButton.addEventListener("click", () => {
 
 const operateButton = document.querySelector(".calculator-equals-button");
 operateButton.addEventListener("click", (e) => {
-    secondNumber = selectedNumber;
-    if (selectedNumber === undefined) {
+
+    if (secondNumber === undefined) {
         return
     }
+
     performOperatation(selectedOperation);
 })
