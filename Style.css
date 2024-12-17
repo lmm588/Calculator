@@ -108,11 +108,11 @@ button:hover {
 }
 
 .calculator-top-row button {
-    background-color: rgb(29, 113, 223);
+    background-color: rgb(9, 77, 165)
 }
 
 .calculator-row button {
-    background: rgb(46, 46, 197);
+    background: rgb(1, 120, 255);
 }
 
 
@@ -153,5 +153,5 @@ button:hover {
 }
 
 .equals-button {
-    background-color: rgb(29, 113, 223) !important;
+    background-color: rgb(9, 77, 165) !important;
 }
