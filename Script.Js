@@ -99,7 +99,7 @@ numberButtonsWrapper.addEventListener("click", (e) => {
         selectedNumber = e.target.innerHTML;
     }
     else {
-        if (selectedNumber.length >= 23) {
+        if (selectedNumber.length >= 19) {
             return;
         }
         selectedNumber = selectedNumber + e.target.innerHTML;

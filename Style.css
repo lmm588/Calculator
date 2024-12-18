@@ -84,7 +84,7 @@ button:hover {
     border: 2px solid black;
     margin-top: 50px;
     min-height: 80px;
-    width: 80%;
+    width: 90%;
     border-radius: 10px;
 }
 
@@ -93,7 +93,8 @@ button:hover {
     color: white;
     padding-left: 30px;
     font-family: 'Stuntman Condensed', sans-serif;
-
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .button-text {
