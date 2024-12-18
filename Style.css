@@ -1,5 +1,8 @@
+
+/* --! Imports !-- */
 @import url('https://fonts.cdnfonts.com/css/stuntman');
 
+/* --! General !-- */
 body {
    padding: 0px;
    margin: 0px;
@@ -21,14 +24,11 @@ button {
   }
   
   button:active {
-    opacity: 70%;
-    -webkit-box-shadow: inset 0px 0px 20px 0px rgb(58, 58, 58);
-    -moz-box-shadow: inset 0px 0px 20px 0px rgb(58, 58, 58);
-    box-shadow: inset 0px 0px 20px 0px rgb(58, 58, 58);
-    outline: none;
+    opacity: 80%;
   }
 
 
+/* --! Wrappers/Containers !-- */
 
 .main-contents {
     padding: var(--padding-m);
@@ -45,23 +45,22 @@ button {
     margin-top: var(--margin-m);
 }
 
+.calculator-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
 
 .calculator-outer {
     height: 470px;
     width: 300px;
     padding: 20px;
-    background-color: rgb(39, 38, 38);
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 30px;
     display: flex;
     flex: auto;
     flex-direction: column;
     align-items: center;
-}
-
-
-.calculator-clear-button {
-    margin-top: var(--margin-m);
-    background-color: #4CAF50;
 }
 
 .calculator-clear-button-wrapper {
@@ -71,59 +70,22 @@ button {
 }
 
 
-
 .calculator-screen {
     display: flex;
-    overflow: hidden;
-    box-shadow: 0px 0px 12px 0px rgb(179, 179, 160);
     align-items: center;
     justify-content: flex-end;
-    background-color: white;
+    overflow: hidden;
+    background-color: rgb(46, 46, 46);
     margin-top: 20px;
     min-height: 60px;
     width: 90%;
     border-radius: 5px;
 }
 
-.calculator-screen-text {
-    font-size: x-large;
-    color: black;
-    padding-right: 10px;
-    padding-left: 10px;
-    font-family: 'Stuntman Condensed', sans-serif;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.button-text {
-    font-size: 20px;
-    font-weight: 900;
-    color: white;
-}
-
 .calculator-top-row {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-}
-
-.calculator-top-row button {
-    background-color: rgb(9, 77, 165)
-}
-
-.calculator-row button {
-    background: rgb(1, 120, 255);
-    margin: 5px;
-}
-
-
-.on-button {
-    margin-top: var(--margin-m);
-    margin-right: 50px;
-    width: 100px;
-    height: 40px;
-    border: 2px solid black;
-    border-radius: 20px;
 }
 
 .calculator-buttons-wrapper {
@@ -135,26 +97,64 @@ button {
     margin-bottom: 15px;
 }
 
+.calculator-operators-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 
+.footer-contents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --! Text !-- */
+.calculator-screen-text {
+    font-size: x-large;
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: 'Stuntman Condensed', sans-serif;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+
+.button-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+}
+
+.sign-off-text {
+    font-family: 'Courier New', Courier, monospace, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: whitesmoke;
+    margin-top: 10px;
+}
+
+/* --! Buttons !-- */
+
+.calculator-clear-button {
+    margin-top: var(--margin-m);
+    background-color: #4CAF50;
+}
+
+.calculator-top-row button {
+    background-color: rgb(9, 77, 165)
+}
+
+.calculator-row button {
+    background: rgb(1, 120, 255);
+    margin: 5px;
+}
 
 .calculator-number-button {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-.calculator-operators-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.calculator-row {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-
 
 .calculator-operator-button {
     background-color: orange;
@@ -163,4 +163,12 @@ button {
 
 .equals-button {
     background-color: rgb(247, 172, 11) !important;
+}
+
+/* --! Images !-- */
+.github-logo {
+    margin-top: 20px;
+    cursor: pointer;
+    width: auto;
+    height: 50px;
 }
