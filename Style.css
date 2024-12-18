@@ -86,9 +86,10 @@ button {
 }
 
 .calculator-screen-text {
-    font-size: xx-large;
+    font-size: x-large;
     color: black;
-    padding-right: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
     font-family: 'Stuntman Condensed', sans-serif;
     max-width: 100%;
     overflow: hidden;
