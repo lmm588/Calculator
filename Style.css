@@ -1,111 +1,109 @@
 @import url('https://fonts.cdnfonts.com/css/stuntman');
 
+body {
+   padding: 0px;
+   margin: 0px;
+   background-color: grey;
+}
+
 :root {
     --margin-m: 20px;
     --padding-m: 20px;
     --btn-border-radius: 30px;
 }
 
-button:hover {
+button {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+
+  }
+  
+  button:active {
     opacity: 70%;
-}
+    -webkit-box-shadow: inset 0px 0px 20px 0px rgb(58, 58, 58);
+    -moz-box-shadow: inset 0px 0px 20px 0px rgb(58, 58, 58);
+    box-shadow: inset 0px 0px 20px 0px rgb(58, 58, 58);
+    outline: none;
+  }
+
+
 
 .main-contents {
     padding: var(--padding-m);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .header-text {
     font-weight: 400;
     font-size: 37px;
     margin-bottom: var(--margin-m);
+    margin-top: var(--margin-m);
 }
 
-.calculator-on {
-    background: greenyellow !important;
-}
 
 .calculator-outer {
-    padding: var(--padding-m);
-    height: 500px;
-    width: 450px;
-    background-color: darkgray;
-    border: 5px solid black;
-    border-radius: 20px;
+    height: 470px;
+    width: 300px;
+    padding: 20px;
+    background-color: rgb(39, 38, 38);
+    border-radius: 10px;
     display: flex;
     flex: auto;
     flex-direction: column;
     align-items: center;
-    box-shadow: 2px 5px 50px 10px black;
 }
 
-.calculator-on-off {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.calculator-on-off button{
-    background-color: orange;
-}
 
 .calculator-clear-button {
     margin-top: var(--margin-m);
-    width: 110px;
-    height: 40px;
-    margin-left: 50px;
-    border: 2px solid black;
-    border-radius: 20px;
+    background-color: #4CAF50;
 }
 
-.calculator-indicator-light {
-    border: 3px solid black;
-    background-color: red;
-    border-radius: 100px;
-    margin-top: 15px;
-    padding: 13px;
-    margin-right: var(--margin-m);
-}
-
-.indicator-light-wrapper {
+.calculator-clear-button-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    width: 90%;
 }
+
+
 
 .calculator-screen {
-    background-color: rgb(122, 122, 122);
     display: flex;
+    overflow: hidden;
+    box-shadow: 0px 0px 12px 0px rgb(179, 179, 160);
     align-items: center;
-    justify-content: flex-start;
-    border: 2px solid black;
-    margin-top: 50px;
-    min-height: 80px;
+    justify-content: flex-end;
+    background-color: white;
+    margin-top: 20px;
+    min-height: 60px;
     width: 90%;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .calculator-screen-text {
     font-size: xx-large;
-    color: white;
-    padding-left: 30px;
+    color: black;
+    padding-right: 30px;
     font-family: 'Stuntman Condensed', sans-serif;
     max-width: 100%;
     overflow: hidden;
 }
 
 .button-text {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 900;
+    color: white;
 }
 
 .calculator-top-row {
-    width: 80%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .calculator-top-row button {
@@ -114,6 +112,7 @@ button:hover {
 
 .calculator-row button {
     background: rgb(1, 120, 255);
+    margin: 5px;
 }
 
 
@@ -128,31 +127,39 @@ button:hover {
 
 .calculator-buttons-wrapper {
     display: flex;
-    margin-top: var(--margin-m);
-    height: 100%;
-    width: 100%;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 
 
 .calculator-number-button {
-    width: 125px;
-    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-operators-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
 
 .calculator-operator-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: var(--btn-border-radius);
-    width: 145px;
-    height: 40px;
+    background-color: orange;
+    margin: 5px;
 }
 
 .equals-button {
-    background-color: rgb(9, 77, 165) !important;
+    background-color: rgb(247, 172, 11) !important;
 }

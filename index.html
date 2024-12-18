@@ -9,49 +9,46 @@
 </head>
 
 <body>
-    <div class="main-contents">
+    <center>
         <div class="header-text">Calculator</div>
+    </center>
+    <div class="main-contents">
         <div class="calculator-outer">
             <div class="calculator-screen"><span class="calculator-screen-text"></span></div>
-            <div class="calculator-on-off">
-                <div><button class="calculator-clear-button"><span class="button-text">Clear</span></div>
-                <div class="indicator-light-wrapper">
-                    <div class="calculator-indicator-light"></div>
-                    <div><button class="on-button"><span class="button-text">On/Off</span></button></div>
-                </div>
-            </div>
-            <div class="calculator-top-row">
-                <button class="calculator-operator-button button-text" function="add">+</button>
-                <button class="calculator-operator-button button-text" function="subtract">-</button>
-                <button class="calculator-operator-button button-text" function="multiply">×</button>
-                <button class="calculator-operator-button button-text" function="divide">÷</button>
+            <div class="calculator-clear-button-wrapper">
+                <button class="calculator-clear-button"><span class="button-text">AC</span>
             </div>
             <div class="calculator-buttons-wrapper">
-                <div class="calculator-row">
-                    <button class="calculator-number-button button-text">7</button>
-                    <button class="calculator-number-button button-text">8</button>
-                    <button class="calculator-number-button button-text">9</button>
+                <div class="calculator-numbers-wrapper">
+                    <div class="calculator-row">
+                        <button class="calculator-number-button button-text">7</button>
+                        <button class="calculator-number-button button-text">8</button>
+                        <button class="calculator-number-button button-text">9</button>
+                    </div>
+                    <div class="calculator-row">
+                        <button class="calculator-number-button button-text">4</button>
+                        <button class="calculator-number-button button-text">5</button>
+                        <button class="calculator-number-button button-text">6</button>
+                    </div>
+                    <div class="calculator-row">
+                        <button class="calculator-number-button button-text">1</button>
+                        <button class="calculator-number-button button-text">2</button>
+                        <button class="calculator-number-button button-text">3</button>
+                    </div>
+                    <div class="calculator-row">
+                        <button class="calculator-number-button button-text">0</button>
+                        <button class="calculator-number-button button-text">.</button>
+                        <button class="calculator-number-button equals-button button-text">=</button>
+                    </div>
                 </div>
-                <div class="calculator-row">
-                    <button class="calculator-number-button button-text">4</button>
-                    <button class="calculator-number-button button-text">5</button>
-                    <button class="calculator-number-button button-text">6</button>
-                </div>
-                <div class="calculator-row">
-                    <button class="calculator-number-button button-text">1</button>
-                    <button class="calculator-number-button button-text">2</button>
-                    <button class="calculator-number-button button-text">3</button>
-                </div>
-                <div class="calculator-row">
-                    <button class="calculator-number-button button-text">0</button>
-                    <button class="calculator-number-button button-text">.</button>
-                    <button class="calculator-number-button equals-button button-text">=</button>
+                <div class="calculator-operators-wrapper">
+                    <button class="calculator-operator-button button-text" function="add">+</button>
+                    <button class="calculator-operator-button button-text" function="subtract">-</button>
+                    <button class="calculator-operator-button button-text" function="multiply">×</button>
+                    <button class="calculator-operator-button button-text" function="divide">÷</button>
                 </div>
             </div>
-
         </div>
-
-    </div>
     </div>
     <script src="Script.Js"></script>
 </body>

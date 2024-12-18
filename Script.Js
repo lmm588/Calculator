@@ -4,31 +4,30 @@ let calculationNumbers = {
     selectedNumber: null,
 }
 
-let isTurnedOn = false;
 let selectedOperation = null;
 let hasEnteredFirstNumber = false;
 
 function add(num1, num2) {
     let result = parseFloat(num1) + parseFloat(num2);
-    return result.toFixed(2);
+    return result.toFixed(2).replace(/[.,]00$/, "");
 }
 
 function subtract(num1, num2) {
     let result = num1 - num2;
-    return result.toFixed(2);
+    return result.toFixed(2).replace(/[.,]00$/, "");
 }
 
 function multiply(num1, num2) {
     let result = num1 * num2;
-    return result.toFixed(2);
+    return result.toFixed(2).replace(/[.,]00$/, "");
 }
 
 function divide(num1, num2) {
     let result = num1 / num2;
-    return result.toFixed(2);
+    return result.toFixed(2).replace(/[.,]00$/, "");
 }
 
-function performOperatation(operation) {
+function performOperation(operation) {
     let result;
     switch (operation) {
         case operation = "+":
@@ -53,6 +52,7 @@ function performOperatation(operation) {
 
     calculationNumbers.firstNumber = result;
     calculationNumbers.secondNumber = null;
+    selectedOperation = null;
     populateDisplay(result);
     return result;
 }
@@ -76,23 +76,10 @@ function clearCalculator() {
 
 let powerButton = document.querySelector(".on-button");
 
-powerButton.addEventListener("click", () => {
-    document.querySelector(".calculator-indicator-light").classList.toggle("calculator-on");
-
-    if (isTurnedOn == true) {
-        isTurnedOn = false;
-        clearCalculator();
-    }
-    else if (isTurnedOn == false) {
-        isTurnedOn = true;
-    }
-    console.log(isTurnedOn);
-});
-
 const numberButtonsWrapper = document.querySelector(".calculator-buttons-wrapper");
 numberButtonsWrapper.addEventListener("click", (e) => {
     const isButton = e.target.nodeName === "BUTTON";
-    if (!isButton || !isTurnedOn) {
+    if (!isButton) {
         return;
     }
     if (e.target.classList.contains("equals-button")) {
@@ -102,7 +89,7 @@ numberButtonsWrapper.addEventListener("click", (e) => {
         calculationNumbers.selectedNumber = e.target.innerHTML;
     }
     else {
-        if (calculationNumbers.selectedNumber.length >= 20) {
+        if (calculationNumbers.selectedNumber.length >= 15) {
             return;
         }
         calculationNumbers.selectedNumber += e.target.innerHTML;
@@ -110,14 +97,14 @@ numberButtonsWrapper.addEventListener("click", (e) => {
     if (!hasEnteredFirstNumber) {
         calculationNumbers.firstNumber = calculationNumbers.selectedNumber;
     } else calculationNumbers.secondNumber = calculationNumbers.selectedNumber;
-    populateDisplay(calculationNumbers.selectedNumber);
+    populateDisplay(hasEnteredFirstNumber ? calculationNumbers.firstNumber + ` ${selectedOperation} ` + calculationNumbers.selectedNumber : calculationNumbers.selectedNumber);
 });
 
 
 const operationsWrapper = document.querySelector(".calculator-top-row");
 operationsWrapper.addEventListener("click", (e) => {
     const isButton = e.target.nodeName === "BUTTON";
-    if (!isButton || !isTurnedOn) {
+    if (!isButton) {
         return
     }
     if (calculationNumbers.selectedNumber === null) {
@@ -129,7 +116,7 @@ operationsWrapper.addEventListener("click", (e) => {
         selectedOperation = e.target.innerHTML;
         populateDisplay(calculationNumbers.firstNumber + " " + selectedOperation);
     } else {
-        performOperatation(selectedOperation);
+        performOperation(selectedOperation);
         selectedOperation = e.target.innerHTML;
         populateDisplay(calculationNumbers.firstNumber + " " + selectedOperation)
         calculationNumbers.selectedNumber = null;
@@ -149,5 +136,5 @@ operateButton.addEventListener("click", (e) => {
     if (calculationNumbers.secondNumber === null) {
         return
     }
-    performOperatation(selectedOperation);
+    performOperation(selectedOperation);
 })
