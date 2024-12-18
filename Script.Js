@@ -1,8 +1,8 @@
-let firstNumber;
-let secondNumber
+let firstNumber = null;
+let secondNumber = null;
 let isTurnedOn = false;
-let selectedNumber;
-let selectedOperation;
+let selectedNumber = null;
+let selectedOperation = null;
 let hasEnteredFirstNumber = false;
 
 function add(num1, num2) {
@@ -49,7 +49,7 @@ function performOperatation(operation) {
     }
 
     firstNumber = result;
-    secondNumber = undefined;
+    secondNumber = null;
     populateDisplay(result);
     return result;
 }
@@ -64,10 +64,10 @@ function clearDisplay() {
 
 function clearCalculator() {
     clearDisplay();
-    selectedNumber = undefined;
-    firstNumber = undefined;
-    secondNumber = undefined;
-    selectedOperation = undefined;
+    selectedNumber = null;
+    firstNumber = null;
+    secondNumber = null;
+    selectedOperation = null;
     hasEnteredFirstNumber = false;
 }
 
@@ -95,7 +95,7 @@ numberButtonsWrapper.addEventListener("click", (e) => {
     if (e.target.classList.contains("equals-button")) {
         return
     }
-    if (selectedNumber === undefined) {
+    if (selectedNumber === null) {
         selectedNumber = e.target.innerHTML;
     }
     else {
@@ -117,19 +117,19 @@ operationsWrapper.addEventListener("click", (e) => {
     if (!isButton || !isTurnedOn) {
         return
     }
-    if (selectedNumber === undefined) {
+    if (selectedNumber === null) {
         return;
     }
-    if (secondNumber === undefined) {
+    if (secondNumber === null) {
         hasEnteredFirstNumber = true;
-        selectedNumber = undefined;
+        selectedNumber = null;
         selectedOperation = e.target.innerHTML;
         populateDisplay(firstNumber + " " + selectedOperation);
     } else {
         performOperatation(selectedOperation);
         selectedOperation = e.target.innerHTML;
         populateDisplay(firstNumber + " " + selectedOperation)
-        selectedNumber = undefined;
+        selectedNumber = null;
 
     }
 
@@ -144,7 +144,7 @@ clearButton.addEventListener("click", () => {
 const operateButton = document.querySelector(".equals-button");
 operateButton.addEventListener("click", (e) => {
 
-    if (secondNumber === undefined) {
+    if (secondNumber === null) {
         return
     }
 
