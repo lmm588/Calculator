@@ -1,7 +1,10 @@
-let firstNumber = null;
-let secondNumber = null;
+let calculationNumbers = {
+    firstNumber: null,
+    secondNumber: null,
+    selectedNumber: null,
+}
+
 let isTurnedOn = false;
-let selectedNumber = null;
 let selectedOperation = null;
 let hasEnteredFirstNumber = false;
 
@@ -29,27 +32,27 @@ function performOperatation(operation) {
     let result;
     switch (operation) {
         case operation = "+":
-            result = add(firstNumber, secondNumber);
+            result = add(calculationNumbers.firstNumber, calculationNumbers.secondNumber);
             break;
 
         case operation = "-":
-            result = subtract(firstNumber, secondNumber);
+            result = subtract(calculationNumbers.firstNumber, calculationNumbers.secondNumber);
             break;
 
         case operation = "×":
-            result = multiply(firstNumber, secondNumber);
+            result = multiply(calculationNumbers.firstNumber, calculationNumbers.secondNumber);
             break;
 
         case operation = "÷":
-            if (firstNumber === "0" || secondNumber === "0") {
+            if (calculationNumbers.firstNumber === "0" || calculationNumbers.secondNumber === "0") {
                 populateDisplay("ERROR");
                 return
             } else
-                result = divide(firstNumber, secondNumber);
+                result = divide(calculationNumbers.firstNumber, calculationNumbers.secondNumber);
     }
 
-    firstNumber = result;
-    secondNumber = null;
+    calculationNumbers.firstNumber = result;
+    calculationNumbers.secondNumber = null;
     populateDisplay(result);
     return result;
 }
@@ -64,9 +67,9 @@ function clearDisplay() {
 
 function clearCalculator() {
     clearDisplay();
-    selectedNumber = null;
-    firstNumber = null;
-    secondNumber = null;
+    calculationNumbers.selectedNumber = null;
+    calculationNumbers.firstNumber = null;
+    calculationNumbers.secondNumber = null;
     selectedOperation = null;
     hasEnteredFirstNumber = false;
 }
@@ -95,19 +98,19 @@ numberButtonsWrapper.addEventListener("click", (e) => {
     if (e.target.classList.contains("equals-button")) {
         return
     }
-    if (selectedNumber === null) {
-        selectedNumber = e.target.innerHTML;
+    if (calculationNumbers.selectedNumber === null) {
+        calculationNumbers.selectedNumber = e.target.innerHTML;
     }
     else {
-        if (selectedNumber.length >= 19) {
+        if (calculationNumbers.selectedNumber.length >= 20) {
             return;
         }
-        selectedNumber = selectedNumber + e.target.innerHTML;
+        calculationNumbers.selectedNumber += e.target.innerHTML;
     }
     if (!hasEnteredFirstNumber) {
-        firstNumber = selectedNumber;
-    } else secondNumber = selectedNumber;
-    populateDisplay(selectedNumber);
+        calculationNumbers.firstNumber = calculationNumbers.selectedNumber;
+    } else calculationNumbers.secondNumber = calculationNumbers.selectedNumber;
+    populateDisplay(calculationNumbers.selectedNumber);
 });
 
 
@@ -117,22 +120,21 @@ operationsWrapper.addEventListener("click", (e) => {
     if (!isButton || !isTurnedOn) {
         return
     }
-    if (selectedNumber === null) {
+    if (calculationNumbers.selectedNumber === null) {
         return;
     }
-    if (secondNumber === null) {
+    if (calculationNumbers.secondNumber === null) {
         hasEnteredFirstNumber = true;
-        selectedNumber = null;
+        calculationNumbers.selectedNumber = null;
         selectedOperation = e.target.innerHTML;
-        populateDisplay(firstNumber + " " + selectedOperation);
+        populateDisplay(calculationNumbers.firstNumber + " " + selectedOperation);
     } else {
         performOperatation(selectedOperation);
         selectedOperation = e.target.innerHTML;
-        populateDisplay(firstNumber + " " + selectedOperation)
-        selectedNumber = null;
+        populateDisplay(calculationNumbers.firstNumber + " " + selectedOperation)
+        calculationNumbers.selectedNumber = null;
 
     }
-
 });
 
 
@@ -144,9 +146,8 @@ clearButton.addEventListener("click", () => {
 const operateButton = document.querySelector(".equals-button");
 operateButton.addEventListener("click", (e) => {
 
-    if (secondNumber === null) {
+    if (calculationNumbers.secondNumber === null) {
         return
     }
-
     performOperatation(selectedOperation);
 })
